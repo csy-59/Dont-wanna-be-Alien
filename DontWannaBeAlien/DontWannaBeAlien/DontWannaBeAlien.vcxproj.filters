@@ -17,11 +17,17 @@
     <ClCompile Include="FrameWork\App.c">
       <Filter>Framework</Filter>
     </ClCompile>
+    <ClCompile Include="FrameWork\Renderer.c">
+      <Filter>Framework</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Type.h" />
     <ClInclude Include="Common.h" />
     <ClInclude Include="FrameWork\App.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="FrameWork\Renderer.h">
       <Filter>Framework</Filter>
     </ClInclude>
   </ItemGroup>
