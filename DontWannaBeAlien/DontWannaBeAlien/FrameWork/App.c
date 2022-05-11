@@ -2,22 +2,30 @@
 #include "Common.h"
 #include "Renderer.h"
 #include "Timer.h"
+#include "Input.h"
 
 bool App_Init() {
 	if (false == Renderer_Init()) {
 		return false;
 	}
+
+	if (false == Input_Init()) {
+		return false;
+	}
+
 	return true;
 }
 
 void precessInput() {
-
+	Input_Update();
 }
 
-int32 s_FPS = 0;
-float elapsedTime;
-bool canShow = false;
+char str[128];
+//int32 s_FPS = 0;
+//float elapsedTime;
+//bool canShow = false;
 void update() {
+	//Timer 실습
 	/*
 	//fps를 출력해보장
 	// 비례식
@@ -30,11 +38,11 @@ void update() {
 	sprintf_s(str, sizeof(str), "현재 FPS : %d", (int32)(1/Timer_GetDeltaTime()));
 	Renderer_DrawText(str, strlen(str));
 	//Renderer_DrawText("Hello Game", sizeof("Hello Game"));
-	*/
+	
 
 	// 0.5초마다 깜빡이는 텍스트를 만드시오.
 	/*
-	* //내버전: 글러먹음
+	//* //내버전: 글러먹음
 	int32 tempFPS = (int32)(1 / Timer_GetDeltaTime());
 
 	if ( (s_FPS + tempFPS) > 500) {
@@ -50,7 +58,7 @@ void update() {
 		s_FPS += tempFPS;
 	}
 	//60 >> 1밀리 세컨드 >> 1000 == 1초 >> 500 60* 500 >> 30000
-	*/
+	
 	//교수님 버전
 	elapsedTime += DELTA_TIME;
 	if (elapsedTime >= 0.5) {
@@ -61,10 +69,40 @@ void update() {
 	if (canShow) {
 		Renderer_DrawText("Hell로", sizeof("Hell로"));
 	}
+	*/
 
+
+	//Input 실습
+	/*
+	// 위쪽 화살표가 눌렸는지 확인
+	//0x0000 : 키가 때짐
+	//0x8000 : 키가 눌림
+	if (0x8000 & GetAsyncKeyState(VK_UP)) { //MSB가 눌렸는지 확인하기 위해 & 연산자 사용
+		// 눌렸다면 "위쪽 화살표 눌림" 출력
+		sprintf_s(str, sizeof(str), "위쪽 화살표 눌림");
+	}
+	else {
+		//눌리지 않았다면 "위쪽 화살표 땜" 출력
+		sprintf_s(str, sizeof(str), "위쪽 화살표 땜");
+	}
+	*/
+	sprintf_s(str, sizeof(str), "현재 입력 없음");
+
+	if (Input_GetKey(VK_UP)) {
+		sprintf_s(str, sizeof(str), "위쪽 화살표 눌림");
+	}
+
+	if (Input_GetKey(VK_DOWN)) {
+		sprintf_s(str, sizeof(str), "아래쪽 화살표 눌림");
+	}
+
+	if (Input_GetKey(VK_LEFT) && Input_GetKey(VK_RIGHT)) {
+		sprintf_s(str, sizeof(str), "왼쪽, 오른쪽 화살표 동시 눌림");
+	}
 }
 
 void render() {
+	Renderer_DrawText(str, strlen(str));
 	Renderer_Flip();
 }
 
