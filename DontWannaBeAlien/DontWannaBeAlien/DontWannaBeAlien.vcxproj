@@ -21,12 +21,14 @@
   <ItemGroup>
     <ClCompile Include="FrameWork\App.c" />
     <ClCompile Include="FrameWork\Renderer.c" />
+    <ClCompile Include="FrameWork\Timer.c" />
     <ClCompile Include="Main.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Common.h" />
     <ClInclude Include="FrameWork\App.h" />
     <ClInclude Include="FrameWork\Renderer.h" />
+    <ClInclude Include="FrameWork\Timer.h" />
     <ClInclude Include="Type.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

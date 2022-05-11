@@ -69,6 +69,6 @@ void Renderer_DrawText(const char* text, int32 numberOfChar) {
 	// 1. 백 버퍼에 대한 핸들을 가져온다.
 	HANDLE backBuffer = s_screens[s_backIndex];
 
-	// 2. 백 버퍼에 텍스트를 출력한다.
+	// 2. 백 버퍼에 텍스트를 출력한다. 멀티 바이트 형식으로 출력
 	WriteConsoleA(backBuffer, text, numberOfChar, NULL, NULL);
 }
