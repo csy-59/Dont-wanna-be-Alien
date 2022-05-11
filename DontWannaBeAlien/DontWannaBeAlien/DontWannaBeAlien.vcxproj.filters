@@ -26,6 +26,9 @@
     <ClCompile Include="FrameWork\Input.c">
       <Filter>Framework</Filter>
     </ClCompile>
+    <ClCompile Include="FrameWork\Random.c">
+      <Filter>Framework</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Type.h" />
@@ -40,6 +43,9 @@
       <Filter>Framework</Filter>
     </ClInclude>
     <ClInclude Include="FrameWork\Input.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="FrameWork\Random.h">
       <Filter>Framework</Filter>
     </ClInclude>
   </ItemGroup>

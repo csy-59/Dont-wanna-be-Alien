@@ -3,6 +3,7 @@
 #include "Renderer.h"
 #include "Timer.h"
 #include "Input.h"
+#include "Random.h"
 
 bool App_Init() {
 	if (false == Renderer_Init()) {
@@ -10,6 +11,10 @@ bool App_Init() {
 	}
 
 	if (false == Input_Init()) {
+		return false;
+	}
+
+	if (false == Random_Init()) {
 		return false;
 	}
 
@@ -85,7 +90,6 @@ void update() {
 		//눌리지 않았다면 "위쪽 화살표 땜" 출력
 		sprintf_s(str, sizeof(str), "위쪽 화살표 땜");
 	}
-	*/
 	sprintf_s(str, sizeof(str), "현재 입력 없음");
 
 	if (Input_GetKey(VK_UP)) {
@@ -99,6 +103,17 @@ void update() {
 	if (Input_GetKey(VK_LEFT) && Input_GetKey(VK_RIGHT)) {
 		sprintf_s(str, sizeof(str), "왼쪽, 오른쪽 화살표 동시 눌림");
 	}
+	*/
+
+	//Random 실습
+	float num1 = Random_GetFNumberFromRange(0.0, 0.1);
+	if (num1 < 0 || num1 > 4) {
+		sprintf_s(str, sizeof(str), "멍청아 진짜 개멍청해");
+	}
+	else {
+		sprintf_s(str, sizeof(str), "%f", num1);
+	}
+	Sleep(500);
 }
 
 void render() {

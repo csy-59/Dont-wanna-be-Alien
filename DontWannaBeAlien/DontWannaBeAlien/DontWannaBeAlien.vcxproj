@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClCompile Include="FrameWork\App.c" />
     <ClCompile Include="FrameWork\Input.c" />
+    <ClCompile Include="FrameWork\Random.c" />
     <ClCompile Include="FrameWork\Renderer.c" />
     <ClCompile Include="FrameWork\Timer.c" />
     <ClCompile Include="Main.c" />
@@ -29,6 +30,7 @@
     <ClInclude Include="Common.h" />
     <ClInclude Include="FrameWork\App.h" />
     <ClInclude Include="FrameWork\Input.h" />
+    <ClInclude Include="FrameWork\Random.h" />
     <ClInclude Include="FrameWork\Renderer.h" />
     <ClInclude Include="FrameWork\Timer.h" />
     <ClInclude Include="Type.h" />
