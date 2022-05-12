@@ -23,6 +23,7 @@
     <ClCompile Include="FrameWork\Input.c" />
     <ClCompile Include="FrameWork\Random.c" />
     <ClCompile Include="FrameWork\Renderer.c" />
+    <ClCompile Include="FrameWork\Text.c" />
     <ClCompile Include="FrameWork\Timer.c" />
     <ClCompile Include="Main.c" />
   </ItemGroup>
@@ -32,6 +33,7 @@
     <ClInclude Include="FrameWork\Input.h" />
     <ClInclude Include="FrameWork\Random.h" />
     <ClInclude Include="FrameWork\Renderer.h" />
+    <ClInclude Include="FrameWork\Text.h" />
     <ClInclude Include="FrameWork\Timer.h" />
     <ClInclude Include="Type.h" />
   </ItemGroup>
@@ -135,6 +137,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -149,6 +152,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

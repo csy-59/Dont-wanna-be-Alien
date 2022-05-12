@@ -1,4 +1,3 @@
-#include "Common.h"
 #include "Renderer.h"
 
 HANDLE s_consoleHandle;
@@ -64,11 +63,21 @@ void Renderer_Flip(void) {
 	clear(s_screens[s_backIndex]);
 }
 
-void Renderer_DrawText(const char* text, int32 numberOfChar) {
-
+void Renderer_DrawText(const Text* text, int32 numberOfChar, int32 x, int32 y)
+{
 	// 1. 백 버퍼에 대한 핸들을 가져온다.
 	HANDLE backBuffer = s_screens[s_backIndex];
 
-	// 2. 백 버퍼에 텍스트를 출력한다. 멀티 바이트 형식으로 출력
-	WriteConsoleA(backBuffer, text, numberOfChar, NULL, NULL);
+	// 2. 커서 위치를 옮겨준다.
+	COORD pos = { x, y };
+	SetConsoleCursorPosition(backBuffer, pos);
+
+	// 3. 백 버퍼에 텍스트를 출력한다.
+	for (int32 i = 0; i < numberOfChar; ++i)
+	{
+		//각 글자마다 속성이 달라서 따로 출력
+		SetConsoleTextAttribute(backBuffer, text[i].Attributes);
+		WriteConsole(backBuffer, &text[i].Char, 1, NULL, NULL);
+	}
+	SetConsoleTextAttribute(backBuffer, TEXT_COLOR_WHITE);
 }

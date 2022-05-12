@@ -4,6 +4,7 @@
 #include "Timer.h"
 #include "Input.h"
 #include "Random.h"
+#include "Text.h"
 
 bool App_Init() {
 	if (false == Renderer_Init()) {
@@ -25,6 +26,7 @@ void precessInput() {
 	Input_Update();
 }
 
+Text text[128];
 char str[128];
 //int32 s_FPS = 0;
 //float elapsedTime;
@@ -106,6 +108,7 @@ void update() {
 	*/
 
 	//Random 실습
+	/*
 	float num1 = Random_GetFNumberFromRange(0.0, 0.1);
 	if (num1 < 0 || num1 > 4) {
 		sprintf_s(str, sizeof(str), "멍청아 진짜 개멍청해");
@@ -114,14 +117,19 @@ void update() {
 		sprintf_s(str, sizeof(str), "%f", num1);
 	}
 	Sleep(500);
+	*/
+	
+	//Text 실습
+	TextCopyWithWhite(text, TEXT("우리반의 존잘은 안재현이다."));
+	
 }
 
 void render() {
-	Renderer_DrawText(str, strlen(str));
+	Renderer_DrawText(text, TextLen(text), 10, 10);
 	Renderer_Flip();
 }
 
-void cleanup() {
+void cleanup(void) {
 	Renderer_Cleanup();
 }
 
